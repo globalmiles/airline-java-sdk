@@ -10,15 +10,15 @@ import java.util.List;
 import java.util.TreeMap;
 
 public enum Environments {
-    TEST; //TODO: Write general description for this element
+    CLOUD; //Cloud Environment
 
     private static TreeMap<String, Environments> valueMap = new TreeMap<String, Environments>();
     private String value;
 
     static {
-        TEST.value = "Test";
+        CLOUD.value = "Cloud";
 
-        valueMap.put("Test", TEST);
+        valueMap.put("Cloud", CLOUD);
     }
 
     /**

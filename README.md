@@ -94,27 +94,26 @@ GlobalMilesAirlineAPIClient client = new GlobalMilesAirlineAPIClient();
 
 ## <a name="list_of_controllers"></a>List of Controllers
 
+* [MembersController](#members_controller)
 * [FlightsController](#flights_controller)
 
-## <a name="flights_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.globalmiles.api.test1.controllers.FlightsController") FlightsController
+## <a name="members_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.globalmiles.api.test1.controllers.MembersController") MembersController
 
 ### Get singleton instance
 
-The singleton instance of the ``` FlightsController ``` class can be accessed from the API Client.
+The singleton instance of the ``` MembersController ``` class can be accessed from the API Client.
 
 ```java
-FlightsController flights = client.getFlights();
+MembersController members = client.getMembers();
 ```
 
-### <a name="create_recommend_a_new_member_async"></a>![Method: ](https://apidocs.io/img/method.png "com.globalmiles.api.test1.controllers.FlightsController.createRecommendANewMemberAsync") createRecommendANewMemberAsync
+### <a name="create_recommend_a_new_member_async"></a>![Method: ](https://apidocs.io/img/method.png "com.globalmiles.api.test1.controllers.MembersController.createRecommendANewMemberAsync") createRecommendANewMemberAsync
 
 > This endpoint allows to recommend a new member to airlines.
 
 
 ```java
 void createRecommendANewMemberAsync(
-        final String accept,
-        final String contentType,
         final NewMemberRequest body,
         final APICallBack<NewMemberResponse> callBack)
 ```
@@ -123,8 +122,6 @@ void createRecommendANewMemberAsync(
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| accept |  ``` Required ```  ``` DefaultValue ```  | It advertises which content type is able to understand. |
-| contentType |  ``` Required ```  ``` DefaultValue ```  | It tells the client what the content type of the returned. |
 | body |  ``` Required ```  | The body of the request. |
 
 
@@ -132,11 +129,9 @@ void createRecommendANewMemberAsync(
 
 ```java
 try {
-    String accept = "application/json";
-    String contentType = "application/json";
     NewMemberRequest body = new NewMemberRequest();
     // Invoking the API call with sample inputs
-    flights.createRecommendANewMemberAsync(accept, contentType, body, new APICallBack<NewMemberResponse>() {
+    members.createRecommendANewMemberAsync(body, new APICallBack<NewMemberResponse>() {
         public void onSuccess(HttpContext context, NewMemberResponse response) {
             // TODO success callback handler
         }
@@ -151,6 +146,57 @@ try {
 ```
 
 
+### <a name="create_member_search_async"></a>![Method: ](https://apidocs.io/img/method.png "com.globalmiles.api.test1.controllers.MembersController.createMemberSearchAsync") createMemberSearchAsync
+
+> This endpoint allows to search a member on the airline system.
+
+
+```java
+void createMemberSearchAsync(
+        final MemberSearchRequest body,
+        final APICallBack<MemberSearchResponse> callBack)
+```
+
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| body |  ``` Required ```  | The body of the request. |
+
+
+#### Example Usage
+
+```java
+try {
+    MemberSearchRequest body = new MemberSearchRequest();
+    // Invoking the API call with sample inputs
+    members.createMemberSearchAsync(body, new APICallBack<MemberSearchResponse>() {
+        public void onSuccess(HttpContext context, MemberSearchResponse response) {
+            // TODO success callback handler
+        }
+        public void onFailure(HttpContext context, Throwable error) {
+            // TODO failure callback handler
+        }
+    });
+} catch(JsonProcessingException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+}
+```
+
+
+[Back to List of Controllers](#list_of_controllers)
+
+## <a name="flights_controller"></a>![Class: ](https://apidocs.io/img/class.png "com.globalmiles.api.test1.controllers.FlightsController") FlightsController
+
+### Get singleton instance
+
+The singleton instance of the ``` FlightsController ``` class can be accessed from the API Client.
+
+```java
+FlightsController flights = client.getFlights();
+```
+
 ### <a name="create_flight_status_async"></a>![Method: ](https://apidocs.io/img/method.png "com.globalmiles.api.test1.controllers.FlightsController.createFlightStatusAsync") createFlightStatusAsync
 
 > This endpoint allows to search the status of flight.
@@ -158,8 +204,6 @@ try {
 
 ```java
 void createFlightStatusAsync(
-        final String accept,
-        final String contentType,
         final FlightStatusRequest body,
         final APICallBack<FlightStatusResponse> callBack)
 ```
@@ -168,8 +212,6 @@ void createFlightStatusAsync(
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| accept |  ``` Required ```  ``` DefaultValue ```  | It advertises which content type is able to understand. |
-| contentType |  ``` Required ```  ``` DefaultValue ```  | It tells the client what the content type of the returned. |
 | body |  ``` Required ```  | The body of the request. |
 
 
@@ -177,11 +219,9 @@ void createFlightStatusAsync(
 
 ```java
 try {
-    String accept = "application/json";
-    String contentType = "application/json";
     FlightStatusRequest body = new FlightStatusRequest();
     // Invoking the API call with sample inputs
-    flights.createFlightStatusAsync(accept, contentType, body, new APICallBack<FlightStatusResponse>() {
+    flights.createFlightStatusAsync(body, new APICallBack<FlightStatusResponse>() {
         public void onSuccess(HttpContext context, FlightStatusResponse response) {
             // TODO success callback handler
         }
@@ -203,8 +243,6 @@ try {
 
 ```java
 void createFlightCreationAsync(
-        final String accept,
-        final String contentType,
         final FlightCreateRequest body,
         final APICallBack<Response> callBack)
 ```
@@ -213,8 +251,6 @@ void createFlightCreationAsync(
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| accept |  ``` Required ```  ``` DefaultValue ```  | It advertises which content type is able to understand. |
-| contentType |  ``` Required ```  ``` DefaultValue ```  | It tells the client what the content type of the returned. |
 | body |  ``` Required ```  | The body of the request. |
 
 
@@ -222,57 +258,10 @@ void createFlightCreationAsync(
 
 ```java
 try {
-    String accept = "application/json";
-    String contentType = "application/json";
     FlightCreateRequest body = new FlightCreateRequest();
     // Invoking the API call with sample inputs
-    flights.createFlightCreationAsync(accept, contentType, body, new APICallBack<Response>() {
+    flights.createFlightCreationAsync(body, new APICallBack<Response>() {
         public void onSuccess(HttpContext context, Response response) {
-            // TODO success callback handler
-        }
-        public void onFailure(HttpContext context, Throwable error) {
-            // TODO failure callback handler
-        }
-    });
-} catch(JsonProcessingException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-}
-```
-
-
-### <a name="create_member_search_async"></a>![Method: ](https://apidocs.io/img/method.png "com.globalmiles.api.test1.controllers.FlightsController.createMemberSearchAsync") createMemberSearchAsync
-
-> This endpoint allows to search a member on the airline system.
-
-
-```java
-void createMemberSearchAsync(
-        final String accept,
-        final String contentType,
-        final MemberSearchRequest body,
-        final APICallBack<MemberSearchResponse> callBack)
-```
-
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| accept |  ``` Required ```  ``` DefaultValue ```  | It advertises which content type is able to understand. |
-| contentType |  ``` Required ```  ``` DefaultValue ```  | It tells the client what the content type of the returned. |
-| body |  ``` Required ```  | The body of the request. |
-
-
-#### Example Usage
-
-```java
-try {
-    String accept = "application/json";
-    String contentType = "application/json";
-    MemberSearchRequest body = new MemberSearchRequest();
-    // Invoking the API call with sample inputs
-    flights.createMemberSearchAsync(accept, contentType, body, new APICallBack<MemberSearchResponse>() {
-        public void onSuccess(HttpContext context, MemberSearchResponse response) {
             // TODO success callback handler
         }
         public void onFailure(HttpContext context, Throwable error) {
@@ -290,4 +279,3 @@ try {
 
 
 
-# airline-java-sdk

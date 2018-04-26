@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class FlightMax 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5125234549769823120L;
+    private static final long serialVersionUID = 5194373006190768868L;
     private String airline;
     private String cabinType;
     private String flightNumber;

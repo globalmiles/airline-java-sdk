@@ -10,6 +10,14 @@ import com.globalmiles.api.test1.http.client.HttpClient;
 
 public class GlobalMilesAirlineAPIClient {
     /**
+     * Singleton access to Members controller
+     * @return	Returns the MembersController instance 
+     */
+    public MembersController getMembers() {
+        return MembersController.getInstance();
+    }
+
+    /**
      * Singleton access to Flights controller
      * @return	Returns the FlightsController instance 
      */

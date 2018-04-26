@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class NewMemberRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4651904165541955099L;
+    private static final long serialVersionUID = 5446803784945990356L;
     private User user;
     private FlightSimple flight;
     /** GETTER

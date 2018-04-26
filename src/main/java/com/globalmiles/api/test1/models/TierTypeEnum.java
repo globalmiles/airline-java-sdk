@@ -9,26 +9,44 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-public enum AwardTypeEnum {
-    DISTANCE_BASED, //TODO: Write general description for this element
-    FARE_BASED; //TODO: Write general description for this element
+public enum TierTypeEnum {
+    UNKNOWN, //Unknown
+    BASIC, //Basic
+    TIER1, //Red
+    TIER2, //Silver
+    TIER3, //Gold
+    TIER4, //Platinum
+    TIER5, //Diamond
+    TIER6; //Corparate
 
-    private static TreeMap<String, AwardTypeEnum> valueMap = new TreeMap<String, AwardTypeEnum>();
+    private static TreeMap<String, TierTypeEnum> valueMap = new TreeMap<String, TierTypeEnum>();
     private String value;
 
     static {
-        DISTANCE_BASED.value = "distance_based";
-        FARE_BASED.value = "fare_based";
+        UNKNOWN.value = "unknown";
+        BASIC.value = "basic";
+        TIER1.value = "tier1";
+        TIER2.value = "tier2";
+        TIER3.value = "tier3";
+        TIER4.value = "tier4";
+        TIER5.value = "tier5";
+        TIER6.value = "tier6";
 
-        valueMap.put("distance_based", DISTANCE_BASED);
-        valueMap.put("fare_based", FARE_BASED);
+        valueMap.put("unknown", UNKNOWN);
+        valueMap.put("basic", BASIC);
+        valueMap.put("tier1", TIER1);
+        valueMap.put("tier2", TIER2);
+        valueMap.put("tier3", TIER3);
+        valueMap.put("tier4", TIER4);
+        valueMap.put("tier5", TIER5);
+        valueMap.put("tier6", TIER6);
     }
 
     /**
      * Returns the enum member associated with the given string value
      * @return The enum member against the given string value */
     @com.fasterxml.jackson.annotation.JsonCreator
-    public static AwardTypeEnum fromString(String toConvert) {
+    public static TierTypeEnum fromString(String toConvert) {
         return valueMap.get(toConvert);
     }
 
@@ -49,14 +67,14 @@ public enum AwardTypeEnum {
     }
 
     /**
-     * Convert list of AwardTypeEnum values to list of string values
-     * @param toConvert The list of AwardTypeEnum values to convert
+     * Convert list of TierTypeEnum values to list of string values
+     * @param toConvert The list of TierTypeEnum values to convert
      * @return List of representative string values */
-    public static List<String> toValue(List<AwardTypeEnum> toConvert) {
+    public static List<String> toValue(List<TierTypeEnum> toConvert) {
         if(toConvert == null)
             return null;
         List<String> convertedValues = new ArrayList<String>();
-        for (AwardTypeEnum enumValue : toConvert) {
+        for (TierTypeEnum enumValue : toConvert) {
             convertedValues.add(enumValue.value);
         }
         return convertedValues;

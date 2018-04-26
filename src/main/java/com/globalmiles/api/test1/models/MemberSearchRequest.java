@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class MemberSearchRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5740994289832975073L;
+    private static final long serialVersionUID = 5720446383745127243L;
     private String ffpNumber;
     private String firstName;
     private String lastName;

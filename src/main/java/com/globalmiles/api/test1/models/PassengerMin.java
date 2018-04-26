@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class PassengerMin 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4771701973606740569L;
+    private static final long serialVersionUID = 5538729120497377761L;
     private String firstName;
     private String lastName;
     private String mobile;

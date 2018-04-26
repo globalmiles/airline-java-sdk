@@ -11,24 +11,24 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class MemberSearchResponse 
         extends Response {
-    private static final long serialVersionUID = 4925448670785026358L;
-    private CardTypeEnum cardType;
+    private static final long serialVersionUID = 4912398713065292453L;
+    private TierTypeEnum tierType;
     private int baseMiles;
     private int promoMiles;
     /** GETTER
-     * Type of miles card.
+     * Type of tiers.
      */
-    @JsonGetter("card_type")
-    public CardTypeEnum getCardType ( ) { 
-        return this.cardType;
+    @JsonGetter("tier_type")
+    public TierTypeEnum getTierType ( ) { 
+        return this.tierType;
     }
     
     /** SETTER
-     * Type of miles card.
+     * Type of tiers.
      */
-    @JsonSetter("card_type")
-    public void setCardType (CardTypeEnum value) { 
-        this.cardType = value;
+    @JsonSetter("tier_type")
+    public void setTierType (TierTypeEnum value) { 
+        this.tierType = value;
     }
  
     /** GETTER

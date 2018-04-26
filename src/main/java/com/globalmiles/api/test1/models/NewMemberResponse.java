@@ -11,9 +11,9 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class NewMemberResponse 
         extends Response {
-    private static final long serialVersionUID = 4835272385482629005L;
+    private static final long serialVersionUID = 5266584634380309472L;
     private String ffpNumber;
-    private CardTypeEnum cardType;
+    private TierTypeEnum tierType;
     private List<ExtraInfoTypeEnum> needExtraInfo;
     /** GETTER
      * Card number of frequent flyer.
@@ -32,19 +32,19 @@ public class NewMemberResponse
     }
  
     /** GETTER
-     * Type of the miles card.
+     * Type of tiers.
      */
-    @JsonGetter("card_type")
-    public CardTypeEnum getCardType ( ) { 
-        return this.cardType;
+    @JsonGetter("tier_type")
+    public TierTypeEnum getTierType ( ) { 
+        return this.tierType;
     }
     
     /** SETTER
-     * Type of the miles card.
+     * Type of tiers.
      */
-    @JsonSetter("card_type")
-    public void setCardType (CardTypeEnum value) { 
-        this.cardType = value;
+    @JsonSetter("tier_type")
+    public void setTierType (TierTypeEnum value) { 
+        this.tierType = value;
     }
  
     /** GETTER
