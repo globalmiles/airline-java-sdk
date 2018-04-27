@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class FlightStatusResponse 
         extends Response {
-    private static final long serialVersionUID = 4985785149415714282L;
+    private static final long serialVersionUID = 4950206344079474840L;
     private FlightStatusTypeEnum flightStatus;
     private FlightMax flight;
     /** GETTER

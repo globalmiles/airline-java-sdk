@@ -19,7 +19,7 @@ public class AwardMilesRulesBuilder {
     }
 
     /**
-     * The type of the award base. The possible values are 'distance_based' and 'fair_based'.
+     * The type of the award base. The possible values are 'distance_based' and 'fare_based'.
      */
     public AwardMilesRulesBuilder awardType(AwardTypeEnum awardType) {
         awardMilesRules.setAwardType(awardType);
@@ -27,7 +27,7 @@ public class AwardMilesRulesBuilder {
     }
 
     /**
-     * The ratio for calculating base mile from distance or fair. Possible value is an integer between 1 and 100.
+     * The ratio for calculating base mile from distance or fare. Possible value is an integer between 1 and 100.
      */
     public AwardMilesRulesBuilder baseRatio(int baseRatio) {
         awardMilesRules.setBaseRatio(baseRatio);

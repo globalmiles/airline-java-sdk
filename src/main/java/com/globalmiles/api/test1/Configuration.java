@@ -15,7 +15,7 @@ public class Configuration {
     /**
      * Current API environment
      */
-    public static Environments environment = Environments.TEST;
+    public static Environments environment = Environments.CLOUD;
 
     /**
      * Get base URI by current environment
@@ -25,7 +25,7 @@ public class Configuration {
     public static String getBaseUri(Servers server) {
         StringBuilder baseUrl = new StringBuilder(environmentsMap.get(Configuration.environment).get(server));
         Map<String, Object> parameters = new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5562448596210505731L;
+            private static final long serialVersionUID = 5011150095790399572L;
             {
             }
         };
@@ -45,10 +45,10 @@ public class Configuration {
      * Map of all base URLs by environments and server aliases 
      */
     private static EnumMap<Environments, EnumMap<Servers, String>> environmentsMap = new EnumMap<Environments, EnumMap<Servers,String>>(Environments.class) {
-        private static final long serialVersionUID = 5352632002803325249L;
+        private static final long serialVersionUID = 5104267183624333868L;
         {
-            put(Environments.TEST , new EnumMap<Servers, String>(Servers.class) {
-                private static final long serialVersionUID = 5730593006345458598L;
+            put(Environments.CLOUD , new EnumMap<Servers, String>(Servers.class) {
+                private static final long serialVersionUID = 5423407834639572135L;
                 {
                     put(Servers.DEFAULT, "https://test1.api.globalmiles.com");
                 }

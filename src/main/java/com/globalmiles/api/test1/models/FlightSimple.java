@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class FlightSimple 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5402190731108908352L;
+    private static final long serialVersionUID = 5148915688041787223L;
     private String airline;
     private String pnr;
     private String departureDate;

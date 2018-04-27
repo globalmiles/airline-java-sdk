@@ -22,47 +22,47 @@ import com.globalmiles.api.test1.http.response.HttpStringResponse;
 import com.globalmiles.api.test1.http.client.APICallBack;
 import com.globalmiles.api.test1.controllers.syncwrapper.APICallBackCatcher;
 
-public class FlightsController extends BaseController {    
+public class MembersController extends BaseController {    
     //private static variables for the singleton pattern
     private static Object syncObject = new Object();
-    private static FlightsController instance = null;
+    private static MembersController instance = null;
 
     /**
      * Singleton pattern implementation 
-     * @return The singleton instance of the FlightsController class 
+     * @return The singleton instance of the MembersController class 
      */
-    public static FlightsController getInstance() {
+    public static MembersController getInstance() {
         synchronized (syncObject) {
             if (null == instance) {
-                instance = new FlightsController();
+                instance = new MembersController();
             }
         }
         return instance;
     }
 
     /**
-     * This endpoint allows to search the status of flight.
+     * This endpoint allows to recommend a new member to airlines.
      * @param    body    Required parameter: The body of the request.
-     * @return    Returns the FlightStatusResponse response from the API call 
+     * @return    Returns the NewMemberResponse response from the API call 
      */
-    public FlightStatusResponse createFlightStatus(
-                final FlightStatusRequest body
+    public NewMemberResponse createRecommendANewMember(
+                final NewMemberRequest body
     ) throws Throwable {
-        APICallBackCatcher<FlightStatusResponse> callback = new APICallBackCatcher<FlightStatusResponse>();
-        createFlightStatusAsync(body, callback);
+        APICallBackCatcher<NewMemberResponse> callback = new APICallBackCatcher<NewMemberResponse>();
+        createRecommendANewMemberAsync(body, callback);
         if(!callback.isSuccess())
             throw callback.getError();
         return callback.getResult();
     }
 
     /**
-     * This endpoint allows to search the status of flight.
+     * This endpoint allows to recommend a new member to airlines.
      * @param    body    Required parameter: The body of the request.
      * @return    Returns the void response from the API call 
      */
-    public void createFlightStatusAsync(
-                final FlightStatusRequest body,
-                final APICallBack<FlightStatusResponse> callBack
+    public void createRecommendANewMemberAsync(
+                final NewMemberRequest body,
+                final APICallBack<NewMemberResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
             public void run() {
@@ -71,13 +71,13 @@ public class FlightsController extends BaseController {
 
                 //prepare query string for API call
                 StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/v1/airline/flights/actions/status");
+                _queryBuilder.append("/v1/airline/members/");
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 4983898557860854222L;
+                    private static final long serialVersionUID = 5250066419362541618L;
                     {
                         put( "user-agent", "APIMATIC 2.0" );
                         put( "accept", "application/json" );
@@ -116,8 +116,8 @@ public class FlightsController extends BaseController {
 
                             //extract result from the http response
                             String _responseBody = ((HttpStringResponse)_response).getBody();
-                            FlightStatusResponse _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<FlightStatusResponse>(){});
+                            NewMemberResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<NewMemberResponse>(){});
 
                             //let the caller know of the success
                             callBack.onSuccess(_context, _result);
@@ -151,28 +151,28 @@ public class FlightsController extends BaseController {
     }
 
     /**
-     * This endpoint allows to create a flight on the system and defines the mileage rules for the passenger.
+     * This endpoint allows to search a member on the airline system.
      * @param    body    Required parameter: The body of the request.
-     * @return    Returns the Response response from the API call 
+     * @return    Returns the MemberSearchResponse response from the API call 
      */
-    public Response createFlightCreation(
-                final FlightCreateRequest body
+    public MemberSearchResponse createMemberSearch(
+                final MemberSearchRequest body
     ) throws Throwable {
-        APICallBackCatcher<Response> callback = new APICallBackCatcher<Response>();
-        createFlightCreationAsync(body, callback);
+        APICallBackCatcher<MemberSearchResponse> callback = new APICallBackCatcher<MemberSearchResponse>();
+        createMemberSearchAsync(body, callback);
         if(!callback.isSuccess())
             throw callback.getError();
         return callback.getResult();
     }
 
     /**
-     * This endpoint allows to create a flight on the system and defines the mileage rules for the passenger.
+     * This endpoint allows to search a member on the airline system.
      * @param    body    Required parameter: The body of the request.
      * @return    Returns the void response from the API call 
      */
-    public void createFlightCreationAsync(
-                final FlightCreateRequest body,
-                final APICallBack<Response> callBack
+    public void createMemberSearchAsync(
+                final MemberSearchRequest body,
+                final APICallBack<MemberSearchResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
             public void run() {
@@ -181,13 +181,13 @@ public class FlightsController extends BaseController {
 
                 //prepare query string for API call
                 StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-                _queryBuilder.append("/v1/airline/flights");
+                _queryBuilder.append("/v1/airline/members/actions/search");
                 //validate and preprocess url
                 String _queryUrl = APIHelper.cleanUrl(_queryBuilder);
 
                 //load all headers for the outgoing API request
                 Map<String, String> _headers = new HashMap<String, String>() {
-                    private static final long serialVersionUID = 5625256060142885203L;
+                    private static final long serialVersionUID = 5320497583740364692L;
                     {
                         put( "user-agent", "APIMATIC 2.0" );
                         put( "accept", "application/json" );
@@ -226,8 +226,8 @@ public class FlightsController extends BaseController {
 
                             //extract result from the http response
                             String _responseBody = ((HttpStringResponse)_response).getBody();
-                            Response _result = APIHelper.deserialize(_responseBody,
-                                                        new TypeReference<Response>(){});
+                            MemberSearchResponse _result = APIHelper.deserialize(_responseBody,
+                                                        new TypeReference<MemberSearchResponse>(){});
 
                             //let the caller know of the success
                             callBack.onSuccess(_context, _result);

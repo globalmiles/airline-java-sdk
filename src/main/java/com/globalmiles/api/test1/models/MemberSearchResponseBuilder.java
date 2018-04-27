@@ -20,10 +20,10 @@ public class MemberSearchResponseBuilder
     }
 
     /**
-     * Type of miles card.
+     * Type of tiers.
      */
-    public MemberSearchResponseBuilder cardType(CardTypeEnum cardType) {
-        memberSearchResponse.setCardType(cardType);
+    public MemberSearchResponseBuilder tierType(TierTypeEnum tierType) {
+        memberSearchResponse.setTierType(tierType);
         return this;
     }
 

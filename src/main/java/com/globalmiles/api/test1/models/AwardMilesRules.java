@@ -11,14 +11,14 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class AwardMilesRules 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4908230539830171713L;
+    private static final long serialVersionUID = 4675586996344657522L;
     private AwardTypeEnum awardType;
     private int baseRatio;
     private int checkinRatio;
     private int checkoutRatio;
     private int surveyRatio;
     /** GETTER
-     * The type of the award base. The possible values are 'distance_based' and 'fair_based'.
+     * The type of the award base. The possible values are 'distance_based' and 'fare_based'.
      */
     @JsonGetter("award_type")
     public AwardTypeEnum getAwardType ( ) { 
@@ -26,7 +26,7 @@ public class AwardMilesRules
     }
     
     /** SETTER
-     * The type of the award base. The possible values are 'distance_based' and 'fair_based'.
+     * The type of the award base. The possible values are 'distance_based' and 'fare_based'.
      */
     @JsonSetter("award_type")
     public void setAwardType (AwardTypeEnum value) { 
@@ -34,7 +34,7 @@ public class AwardMilesRules
     }
  
     /** GETTER
-     * The ratio for calculating base mile from distance or fair. Possible value is an integer between 1 and 100.
+     * The ratio for calculating base mile from distance or fare. Possible value is an integer between 1 and 100.
      */
     @JsonGetter("base_ratio")
     public int getBaseRatio ( ) { 
@@ -42,7 +42,7 @@ public class AwardMilesRules
     }
     
     /** SETTER
-     * The ratio for calculating base mile from distance or fair. Possible value is an integer between 1 and 100.
+     * The ratio for calculating base mile from distance or fare. Possible value is an integer between 1 and 100.
      */
     @JsonSetter("base_ratio")
     public void setBaseRatio (int value) { 

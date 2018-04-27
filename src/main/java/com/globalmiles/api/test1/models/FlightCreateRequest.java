@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class FlightCreateRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5123299379717069858L;
+    private static final long serialVersionUID = 5387093709764132210L;
     private AwardMilesRules awardMilesRules;
     private PassengerMax passenger;
     private RoutingTypeEnum routingType;

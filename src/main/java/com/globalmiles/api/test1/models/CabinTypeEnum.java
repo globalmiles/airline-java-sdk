@@ -10,42 +10,84 @@ import java.util.List;
 import java.util.TreeMap;
 
 public enum CabinTypeEnum {
-    UNKNOWN, //Unknown
-    DISCOUNT_ECONOMY, //Discount Economy
-    ECONOMY, //Economy
-    FULL_ECONOMY, //Full Economy
-    PREMIUM_ECONOMY, //Premium Economy
-    DISCOUNT_BUSINESS, //Discount Business
-    BUSINESS, //Business
-    PREMIUM_BUSINESS, //Premium Business
-    FIRST, //First
-    PREMIUM_FIRST; //Premium First
+    A, //First Class Discounted
+    B, //Economy/Coach
+    C, //Business Class
+    D, //Business Class Discounted
+    E, //Shuttle Service (no reservation allowed) or Economy/Coach Discounted
+    F, //First Class
+    G, //Conditional Reservation
+    H, //Economy/Coach Discounted
+    J, //Business Class Premium
+    K, //Economy/Coach Discounted
+    L, //Economy/Coach Discounted
+    M, //Economy/Coach Discounted
+    N, //Economy/Coach Discounted
+    P, //First Class Premium
+    Q, //Economy/Coach Discounted
+    R, //First Class Suite or Supersonic (discontinued)
+    S, //Economy/Coach
+    T, //Economy/Coach Discounted
+    U, //Shuttle Service
+    V, //Economy/Coach Discounted
+    W, //Economy/Coach Premium
+    X, //Economy/Coach Discounted
+    Y, //Economy/Coach
+    Z; //Business Class Discounted
 
     private static TreeMap<String, CabinTypeEnum> valueMap = new TreeMap<String, CabinTypeEnum>();
     private String value;
 
     static {
-        UNKNOWN.value = "unknown";
-        DISCOUNT_ECONOMY.value = "discount_economy";
-        ECONOMY.value = "economy";
-        FULL_ECONOMY.value = "full_economy";
-        PREMIUM_ECONOMY.value = "premium_economy";
-        DISCOUNT_BUSINESS.value = "discount_business";
-        BUSINESS.value = "business";
-        PREMIUM_BUSINESS.value = "premium_business";
-        FIRST.value = "first";
-        PREMIUM_FIRST.value = "premium_first";
+        A.value = "A";
+        B.value = "B";
+        C.value = "C";
+        D.value = "D";
+        E.value = "E";
+        F.value = "F";
+        G.value = "G";
+        H.value = "H";
+        J.value = "J";
+        K.value = "K";
+        L.value = "L";
+        M.value = "M";
+        N.value = "N";
+        P.value = "P";
+        Q.value = "Q";
+        R.value = "R";
+        S.value = "S";
+        T.value = "T";
+        U.value = "U";
+        V.value = "V";
+        W.value = "W";
+        X.value = "X";
+        Y.value = "Y";
+        Z.value = "Z";
 
-        valueMap.put("unknown", UNKNOWN);
-        valueMap.put("discount_economy", DISCOUNT_ECONOMY);
-        valueMap.put("economy", ECONOMY);
-        valueMap.put("full_economy", FULL_ECONOMY);
-        valueMap.put("premium_economy", PREMIUM_ECONOMY);
-        valueMap.put("discount_business", DISCOUNT_BUSINESS);
-        valueMap.put("business", BUSINESS);
-        valueMap.put("premium_business", PREMIUM_BUSINESS);
-        valueMap.put("first", FIRST);
-        valueMap.put("premium_first", PREMIUM_FIRST);
+        valueMap.put("A", A);
+        valueMap.put("B", B);
+        valueMap.put("C", C);
+        valueMap.put("D", D);
+        valueMap.put("E", E);
+        valueMap.put("F", F);
+        valueMap.put("G", G);
+        valueMap.put("H", H);
+        valueMap.put("J", J);
+        valueMap.put("K", K);
+        valueMap.put("L", L);
+        valueMap.put("M", M);
+        valueMap.put("N", N);
+        valueMap.put("P", P);
+        valueMap.put("Q", Q);
+        valueMap.put("R", R);
+        valueMap.put("S", S);
+        valueMap.put("T", T);
+        valueMap.put("U", U);
+        valueMap.put("V", V);
+        valueMap.put("W", W);
+        valueMap.put("X", X);
+        valueMap.put("Y", Y);
+        valueMap.put("Z", Z);
     }
 
     /**

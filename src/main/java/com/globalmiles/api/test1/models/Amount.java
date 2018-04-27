@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class Amount 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4898024060589229528L;
+    private static final long serialVersionUID = 5177580482187099524L;
     private String currencyCode;
     private double value;
     /** GETTER
