@@ -8,10 +8,13 @@ package com.globalmiles.api.test1.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+@JsonInclude(Include.ALWAYS)
 public class PassengerMax 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5034374689978214244L;
+    private static final long serialVersionUID = -4762956459564685339L;
     private String firstName;
     private String lastName;
     private String mobile;
@@ -132,4 +135,3 @@ public class PassengerMax
     }
  
 }
- 

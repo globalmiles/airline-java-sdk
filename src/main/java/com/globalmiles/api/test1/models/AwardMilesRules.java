@@ -8,10 +8,13 @@ package com.globalmiles.api.test1.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+@JsonInclude(Include.ALWAYS)
 public class AwardMilesRules 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4675586996344657522L;
+    private static final long serialVersionUID = 2432843462852073035L;
     private AwardTypeEnum awardType;
     private int baseRatio;
     private int checkinRatio;
@@ -98,4 +101,3 @@ public class AwardMilesRules
     }
  
 }
- 

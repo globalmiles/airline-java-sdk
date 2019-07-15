@@ -8,10 +8,13 @@ package com.globalmiles.api.test1.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+@JsonInclude(Include.ALWAYS)
 public class FlightStatusResponse 
         extends Response {
-    private static final long serialVersionUID = 4950206344079474840L;
+    private static final long serialVersionUID = 1766129703848179639L;
     private FlightStatusTypeEnum flightStatus;
     private FlightMax flight;
     /** GETTER
@@ -47,4 +50,3 @@ public class FlightStatusResponse
     }
  
 }
- 

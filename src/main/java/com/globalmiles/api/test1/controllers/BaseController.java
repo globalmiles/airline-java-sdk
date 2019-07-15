@@ -5,11 +5,12 @@
  */
 package com.globalmiles.api.test1.controllers;
 
+
 import com.globalmiles.api.test1.exceptions.*;
 import com.globalmiles.api.test1.http.client.HttpClient;
 import com.globalmiles.api.test1.http.client.HttpContext;
 import com.globalmiles.api.test1.http.client.HttpCallBack;
-import com.globalmiles.api.test1.http.client.UnirestClient;
+import com.globalmiles.api.test1.http.client.OkClient;
 import com.globalmiles.api.test1.http.response.HttpResponse;
 
 public abstract class BaseController {
@@ -17,7 +18,8 @@ public abstract class BaseController {
      * Private variable to keep shared reference of client instance
      */
     private static HttpClient clientInstance = null;
-    private static Object syncObject = new Object();
+    private static final Object syncObject = new Object();
+    protected static final String userAgent = "APIMATIC 2.0";
 
     /**
      * Protected variable to keep reference of httpCallBack instance if user provides any
@@ -45,10 +47,12 @@ public abstract class BaseController {
      * @return The shared instance of the http client 
      */
     public static HttpClient getClientInstance() {
-        synchronized (syncObject) {
-            if (null == clientInstance) {
-                clientInstance = UnirestClient.getSharedInstance();
-    }
+        if (null == clientInstance) {
+            synchronized (syncObject) {
+                if (null == clientInstance) {
+                    clientInstance = OkClient.getSharedInstance();
+                }
+            }
         }
         return clientInstance;
     }
@@ -58,23 +62,25 @@ public abstract class BaseController {
      * @param    client    The shared instance of the http client 
      */
     public static void setClientInstance(HttpClient client) {
-        synchronized (syncObject) {
-            if (null != client) {
-                clientInstance = client;
+        if (null != client) {
+            synchronized (syncObject) {
+                if (null != client) {
+                    clientInstance = client;
+                }
             }
         }
     }
-
     /**
      * Validates the response against HTTP errors defined at the API level
-     * @param   response    The response recieved
+     * @param   _response    The response recieved
      * @param   context     Context of the request and the recieved response 
      */
-    protected void validateResponse(HttpResponse response, HttpContext context) 
+    protected void validateResponse(HttpResponse _response, HttpContext context) 
             throws APIException {
         //get response status code to validate
-        int responseCode = response.getStatusCode();
-        if ((responseCode < 200) || (responseCode > 208)) //[200,208] = HTTP OK
+        int responseCode = _response.getStatusCode();
+        if ((responseCode < 200) || (responseCode > 208)) { //[200,208] = HTTP OK
             throw new APIException("HTTP Response Not OK", context);
+        }
     }
 }

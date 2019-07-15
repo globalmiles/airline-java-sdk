@@ -8,10 +8,13 @@ package com.globalmiles.api.test1.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+@JsonInclude(Include.ALWAYS)
 public class Response 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 4668074026807831348L;
+    private static final long serialVersionUID = -5598286188292022904L;
     private String status;
     private String message;
     /** GETTER
@@ -47,4 +50,3 @@ public class Response
     }
  
 }
- 

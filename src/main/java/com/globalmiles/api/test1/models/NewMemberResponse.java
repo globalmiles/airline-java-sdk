@@ -8,10 +8,13 @@ package com.globalmiles.api.test1.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+@JsonInclude(Include.ALWAYS)
 public class NewMemberResponse 
         extends Response {
-    private static final long serialVersionUID = 5266584634380309472L;
+    private static final long serialVersionUID = 6000130067673025566L;
     private String ffpNumber;
     private TierTypeEnum tierType;
     private List<ExtraInfoTypeEnum> needExtraInfo;
@@ -64,4 +67,3 @@ public class NewMemberResponse
     }
  
 }
- 

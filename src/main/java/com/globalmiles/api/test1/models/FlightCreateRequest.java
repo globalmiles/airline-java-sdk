@@ -8,10 +8,13 @@ package com.globalmiles.api.test1.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+@JsonInclude(Include.ALWAYS)
 public class FlightCreateRequest 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5387093709764132210L;
+    private static final long serialVersionUID = -433342979782184478L;
     private AwardMilesRules awardMilesRules;
     private PassengerMax passenger;
     private RoutingTypeEnum routingType;
@@ -81,4 +84,3 @@ public class FlightCreateRequest
     }
  
 }
- 
