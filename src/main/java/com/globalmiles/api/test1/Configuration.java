@@ -5,7 +5,6 @@
  */
 package com.globalmiles.api.test1;
 
-import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,12 +22,8 @@ public class Configuration {
      * @return Processed base URI
      */
     public static String getBaseUri(Servers server) {
-        StringBuilder baseUrl = new StringBuilder(environmentsMap.get(Configuration.environment).get(server));
-        Map<String, Object> parameters = new HashMap<String, Object>() {
-            private static final long serialVersionUID = 5011150095790399572L;
-            {
-            }
-        };
+        StringBuilder baseUrl = new StringBuilder(environmentMapper(Configuration.environment, server));
+        Map<String, Object> parameters = new HashMap<String, Object>();
         APIHelper.appendUrlWithTemplateParameters(baseUrl, parameters);
         return baseUrl.toString();
     }
@@ -38,21 +33,19 @@ public class Configuration {
      * @return Processed base URI
      */
     public static String getBaseUri() {
-        return Configuration.getBaseUri(Servers.DEFAULT);
+        return Configuration.getBaseUri(Servers.ENUM_DEFAULT);
     }
     
     /**
-     * Map of all base URLs by environments and server aliases 
+     * Base URLs by environments and server aliases 
      */
-    private static EnumMap<Environments, EnumMap<Servers, String>> environmentsMap = new EnumMap<Environments, EnumMap<Servers,String>>(Environments.class) {
-        private static final long serialVersionUID = 5104267183624333868L;
-        {
-            put(Environments.CLOUD , new EnumMap<Servers, String>(Servers.class) {
-                private static final long serialVersionUID = 5423407834639572135L;
-                {
-                    put(Servers.DEFAULT, "https://test1.api.globalmiles.com");
-                }
-            });
-        }
-    };
+
+    private static String environmentMapper(Environments environments, Servers servers) {
+		String url = "";
+		if(environments.equals(Environments.CLOUD)) {
+			if(servers.equals(Servers.ENUM_DEFAULT))
+				url = "https://test1.api.globalmiles.com";
+		}
+		return url;
+	}
 }

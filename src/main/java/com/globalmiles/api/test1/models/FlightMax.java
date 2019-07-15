@@ -8,10 +8,13 @@ package com.globalmiles.api.test1.models;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+@JsonInclude(Include.ALWAYS)
 public class FlightMax 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 5194373006190768868L;
+    private static final long serialVersionUID = 2291448188998478461L;
     private String airline;
     private String cabinType;
     private String flightNumber;
@@ -200,4 +203,3 @@ public class FlightMax
     }
  
 }
- 
